@@ -1,0 +1,18 @@
+.header-area .main-header-area{
+    background: rgba(0, 29, 56, 0.8);
+}
+
+.popular_catagory_area .single_catagory a h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.popular_catagory_area .single_catagory:hover h2 {
+    color: #00D363;
+    text-decoration: underline;
+}
