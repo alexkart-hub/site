@@ -6,14 +6,12 @@
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="footer_logo">
-                            <a href="#">
-                                <img src="/jb_assets/img/logo.png" alt="">
+                            <a href="{{ route('home') }}">
+                                <img src="/assets/img/logo.png" alt="">
                             </a>
                         </div>
                         <p>
-                            finloan@support.com <br>
-                            +10 873 672 6782 <br>
-                            600/D, Green road, NewYork
+                            <a href="email:info@maxis-life.ru">info@maxis-life.ru</a>
                         </p>
                         <div class="socail_links">
                             <ul>
@@ -71,15 +69,15 @@
                 </div>
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="footer_widget wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".6s">
-                        <h3 class="footer_title">
-                            Subscribe
-                        </h3>
-                        <form action="#" class="newsletter_form">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                        <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
-                            luckily.</p>
+{{--                        <h3 class="footer_title">--}}
+{{--                            Subscribe--}}
+{{--                        </h3>--}}
+{{--                        <form action="#" class="newsletter_form">--}}
+{{--                            <input type="text" placeholder="Enter your mail">--}}
+{{--                            <button type="submit">Subscribe</button>--}}
+{{--                        </form>--}}
+{{--                        <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems--}}
+{{--                            luckily.</p>--}}
                     </div>
                 </div>
             </div>
@@ -104,36 +102,36 @@
 
 <!-- link that opens popup -->
 <!-- JS here -->
-<script src="/jb_assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="/jb_assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="/jb_assets/js/popper.min.js"></script>
-<script src="/jb_assets/js/bootstrap.min.js"></script>
-<script src="/jb_assets/js/owl.carousel.min.js"></script>
-<script src="/jb_assets/js/isotope.pkgd.min.js"></script>
-<script src="/jb_assets/js/ajax-form.js"></script>
-<script src="/jb_assets/js/waypoints.min.js"></script>
-<script src="/jb_assets/js/jquery.counterup.min.js"></script>
-<script src="/jb_assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="/jb_assets/js/scrollIt.js"></script>
-<script src="/jb_assets/js/jquery.scrollUp.min.js"></script>
-<script src="/jb_assets/js/wow.min.js"></script>
-<script src="/jb_assets/js/nice-select.min.js"></script>
-<script src="/jb_assets/js/jquery.slicknav.min.js"></script>
-<script src="/jb_assets/js/jquery.magnific-popup.min.js"></script>
-<script src="/jb_assets/js/plugins.js"></script>
-<script src="/jb_assets/js/gijgo.min.js"></script>
+<script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/ajax-form.js"></script>
+<script src="/assets/js/waypoints.min.js"></script>
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/js/scrollIt.js"></script>
+<script src="/assets/js/jquery.scrollUp.min.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/nice-select.min.js"></script>
+<script src="/assets/js/jquery.slicknav.min.js"></script>
+<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/plugins.js"></script>
+<script src="/assets/js/gijgo.min.js"></script>
 
 
 
 <!--contact js-->
-<script src="/jb_assets/js/contact.js"></script>
-<script src="/jb_assets/js/jquery.ajaxchimp.min.js"></script>
-<script src="/jb_assets/js/jquery.form.js"></script>
-<script src="/jb_assets/js/jquery.validate.min.js"></script>
-<script src="/jb_assets/js/mail-script.js"></script>
+<script src="/assets/js/contact.js"></script>
+<script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="/assets/js/jquery.form.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/mail-script.js"></script>
 
 
-<script src="/jb_assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 
 </html>
