@@ -13,13 +13,21 @@ class PostController extends Controller
         $category = Category::query()
             ->where('code', $categoryCode);
 
+        $categories = Category::query()
+            ->where('level', $category->value('level') + 1)
+            ->where('parent_id', $category->value('id'))
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $posts = Post::query()
             ->where('category_id', '=', $category->value('id'))
             ->orderBy('created_at', 'desc')
             ->paginate(3);
+
         return view('categories.category.index', [
             'posts' => $posts,
-            'category' => $category
+            'curCategory' => $category,
+            'categories' => $categories
         ]);
     }
 
