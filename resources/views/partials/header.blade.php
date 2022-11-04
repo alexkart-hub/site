@@ -52,7 +52,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('home') }}">Главная</a></li>
-                                        <li><a href="{{ route('themes') }}">Темы</a></li>
+                                        <li><a href="{{ route('categories') }}">Темы</a></li>
                                         <li><a href="#">Избранное</a></li>
                                         <li><a href="#">Контакты</a></li>
                                     </ul>

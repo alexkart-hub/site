@@ -5,7 +5,7 @@
 
 @section('content')
 
-        @include('themes.header')
+        @include('categories.header')
 
         <?php $num = 1 ?>
         @foreach($posts as $post)

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThemesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateThemesTable extends Migration
      */
     public function up()
     {
-        Schema::create('themes', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->string('code');
+            $table->string('title');
             $table->text('description');
             $table->integer('level');
             $table->integer('margin_left');
@@ -33,6 +34,6 @@ class CreateThemesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('themes');
+        Schema::dropIfExists('categories');
     }
 }

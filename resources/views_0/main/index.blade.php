@@ -6,7 +6,7 @@
 @section('content')
     @include('main.header')
     @foreach($themes as $theme)
-        @include('themes.item', [
+        @include('categories.item', [
             'theme' => $theme
         ])
     @endforeach

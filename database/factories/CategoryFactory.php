@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ThemeFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,6 +14,8 @@ class ThemeFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->text(50),
+            'code' => $this->faker->text(50),
             'title' => $this->faker->text(50),
             'description' => $this->faker->text(),
             'level' => $this->faker->numberBetween(1, 3),

@@ -5,12 +5,12 @@
 
 @section('content')
 @include('main.header')
-{{--    @foreach($themes as $theme)--}}
-{{--        @include('themes.item', [--}}
+{{--    @foreach($categories as $theme)--}}
+{{--        @include('categories.item', [--}}
 {{--            'theme' => $theme--}}
 {{--        ])--}}
 {{--    @endforeach--}}
-{{--    {{ $themes->links('partials.pagination') }}--}}
+{{--    {{ $categories->links('partials.pagination') }}--}}
 
 {{--    @include('main.footer')--}}
 

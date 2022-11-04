@@ -16,7 +16,7 @@
     <!-- FontAwesome JS-->
     <script defer src="/assets/fontawesome/js/all.min.js"></script>
 
-    <!-- Theme CSS -->
+    <!-- Category CSS -->
     <link id="theme-style" rel="stylesheet" href="/assets/css/theme.css">
 
 </head>

@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
-Route::get('/theme', [\App\Http\Controllers\PostController::class, 'categories'])->name('themes');
-Route::get('/theme/{themeCode}', [\App\Http\Controllers\PostController::class, 'category'])->name('theme');
-Route::get('/theme/{themeCode}/{id}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
+Route::get('/category', [\App\Http\Controllers\PostController::class, 'categories'])->name('categories');
+Route::get('/category/{categoryCode}', [\App\Http\Controllers\PostController::class, 'category'])->name('category');
+Route::get('/category/{categoryCode}/{id}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');

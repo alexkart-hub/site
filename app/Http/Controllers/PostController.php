@@ -3,34 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Theme;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function category($themeCode)
+    public function category($categoryCode)
     {
-        $theme = Theme::query()
-            ->where('code', $themeCode);
+        $category = Category::query()
+            ->where('code', $categoryCode);
 
         $posts = Post::query()
-            ->where('theme_id', '=', $theme->value('id'))
+            ->where('category_id', '=', $category->value('id'))
             ->orderBy('created_at', 'desc')
             ->paginate(3);
-        return view('themes.index', [
+        return view('categories.category.index', [
             'posts' => $posts,
-            'theme' => $theme
+            'category' => $category
         ]);
     }
 
     public function categories()
     {
-        $themes = Theme::query()
+        $categories = Category::query()
             ->where('level', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(12);
-        return view('themes.index',[
-            'themes' => $themes
+        return view('categories.index',[
+            'categories' => $categories
         ]);
     }
 
