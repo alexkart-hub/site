@@ -7,7 +7,6 @@
 
     @include('categories.header')
 
-    <?php $num = 1 ?>
     @foreach($categories as $category)
         @include('categories.item',[
             'category' => $category

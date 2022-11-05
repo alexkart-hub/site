@@ -11,17 +11,15 @@
             'category' => $category
         ])
     @endforeach
-    @include('categories.category.footer')
+    @if (empty($posts))
+        @include('categories.footer')
+        {{ $categories->links('partials.pagination') }}
+    @else
+        @include('categories.category.footer')
 
-    @include('posts.categories.header')
-    @foreach($posts as $post)
-        @include('posts.categories.item',[
-            'post' => $post,
-            'curCategory' => $curCategory
-        ])
-    @endforeach
-    @include('posts.categories.footer')
-
-    {{ $posts->links('partials.pagination') }}
-
+        @include('categories.category.contentBlock.header')
+        @include('posts.categories.index')
+        @include('partials.leftBar.index')
+        @include('categories.category.contentBlock.footer')
+    @endif
 @endsection
