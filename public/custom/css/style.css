@@ -21,3 +21,61 @@
     background-color: #fff;
     opacity: 0.8;
 }
+
+.genric-btn.auth-link{
+    color: #415094;
+    background: none;
+    text-decoration: underline;
+    border: 1px solid transparent;
+    padding-left: 0;
+}
+
+/* line 257, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.genric-btn.custom {
+    color: #fff;
+    background: #001D38;
+    border: 1px solid transparent;
+    opacity: 0.8;
+}
+
+/* line 261, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.genric-btn.custom:hover {
+    color: #001D38;
+    border: 1px solid #001D38;
+    background: #fff;
+}
+
+/* line 267, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.genric-btn.custom-border {
+    color: #001D38;
+    border: 1px solid #001D38;
+    background: #fff;
+}
+
+/* line 271, ../../Arafath/CL/December/235. Job board/HTML/scss/_elements.scss */
+.genric-btn.custom-border:hover {
+    color: #fff;
+    background: #001D38;
+    border: 1px solid transparent;
+}
+
+.single-input {
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    border: 1px solid rgb(0, 29, 56, 0.3);
+    box-shadow: 2px 2px 3px rgb(0, 29, 56, 0.3);
+    outline: none;
+    background: #f9f9ff;
+    padding: 0 20px;
+}
+
+p.danger{
+    color: #f44a40;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+a.user-name{
+    padding: 0 15px;
+}

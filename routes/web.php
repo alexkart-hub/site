@@ -20,3 +20,14 @@ Route::get('/category', [\App\Http\Controllers\PostController::class, 'categorie
 Route::get('/category/{categoryCode}', [\App\Http\Controllers\PostController::class, 'category'])->name('category');
 Route::get('/category/{categoryCode}/{postCode}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
 Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::class, 'getImage'])->name('postImage');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login_process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');
+    Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register_process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register_process');
+});
