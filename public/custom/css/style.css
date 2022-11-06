@@ -79,3 +79,7 @@ p.danger{
 a.user-name{
     padding: 0 15px;
 }
+
+.border-danger{
+    border: 1px solid rgb(244, 74, 64, 0.5) !important;
+}

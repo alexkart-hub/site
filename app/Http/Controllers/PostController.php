@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentForm;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -66,5 +67,13 @@ class PostController extends Controller
             'postPrev' => $posts[$postsCodesKeys[$postCode] - 1] ?? '',
             'postNext' => $posts[$postsCodesKeys[$postCode] + 1] ?? '',
         ]);
+    }
+
+    public function comment($postId, CommentForm $request)
+    {
+        $post = Post::findOrFail($postId);
+        $category = Category::findOrFail($post->category_id);
+        $post->comments()->create($request->validated());
+        return redirect(route('post', ['categoryCode' => $category->code, 'postCode' => $post->code]));
     }
 }

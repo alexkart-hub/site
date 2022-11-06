@@ -13,12 +13,12 @@
 
                             <form class="space-y-5 mt-5" action="{{ route('login_process') }}" method="POST">
                                 @csrf
-                                <input name="email" type="text" class="single-input" placeholder="Email"/>
+                                <input name="email" type="text" class="single-input @error('email') border-danger @enderror" placeholder="Email"/>
                                 @error('email')
                                 <p class="danger">{{ $message }}</p>
                                 @enderror
 
-                                <input name="password" type="password" class="single-input mt-3" placeholder="Пароль"/>
+                                <input name="password" type="password" class="single-input mt-3 @error('password') border-danger @enderror" placeholder="Пароль"/>
                                 @error('password')
                                 <p class="danger">{{ $message }}</p>
                                 @enderror

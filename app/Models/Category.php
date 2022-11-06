@@ -20,4 +20,8 @@ class Category extends Model
         'parent_id',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class)->orderBy('created_at', 'desc');
+    }
 }

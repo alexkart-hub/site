@@ -11,6 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+        'category_id',
         'title',
         'code',
         'preview_text',
@@ -20,6 +21,11 @@ class Post extends Model
 
     public function comments()
     {
-        $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
