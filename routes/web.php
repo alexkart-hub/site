@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
 Route::get('/category', [\App\Http\Controllers\PostController::class, 'categories'])->name('categories');
 Route::get('/category/{categoryCode}', [\App\Http\Controllers\PostController::class, 'category'])->name('category');
-Route::get('/category/{categoryCode}/{id}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
+Route::get('/category/{categoryCode}/{postCode}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
+Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::class, 'getImage'])->name('postImage');

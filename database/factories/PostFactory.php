@@ -15,10 +15,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'code' => '',
+            'code' => $this->faker->slug(6),
             'preview_text' => $this->faker->text(50),
             'detail_text' => $this->faker->text(),
-            'thumbnail' => $this->faker->image('public/storage/posts', 640, 480, '', false),
+            'thumbnail' => $this->faker->image('posts', 640, 480, '', false),
         ];
     }
 }

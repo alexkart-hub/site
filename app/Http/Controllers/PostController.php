@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     const CATEGORIES_ON_PAGE = 12;
+
     public function category($categoryCode)
     {
         $category = Category::query()
@@ -38,16 +39,32 @@ class PostController extends Controller
             ->where('level', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(self::CATEGORIES_ON_PAGE);
-        return view('categories.index',[
+        return view('categories.index', [
             'categories' => $categories
         ]);
     }
 
-    public function showPost($id)
+    public function showPost($categoryCode, $postCode)
     {
-        $post = Post::findOrFail($id);
-        return view('post', [
-            'post' => $post
+        $category = Category::query()
+            ->where('code', $categoryCode);
+
+        $posts = Post::query()
+            ->where('category_id', '=', $category->value('id'))
+            ->orderBy('created_at', 'desc')
+            ->get(['code', 'title'])->toArray();
+        $postsCodes = array_column($posts, 'code');
+        $postsCodesKeys = array_flip($postsCodes);
+
+        $post = Post::query()
+            ->where('code', $postCode)
+            ->first();
+
+        return view('posts.post.index', [
+            'post' => $post,
+            'curCategory' => $category,
+            'postPrev' => $posts[$postsCodesKeys[$postCode] - 1] ?? '',
+            'postNext' => $posts[$postsCodesKeys[$postCode] + 1] ?? '',
         ]);
     }
 }
