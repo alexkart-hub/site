@@ -1,5 +1,5 @@
 <!-- popular_catagory_area_start  -->
-<div class="popular_catagory_area mt-3">
+<div class="popular_catagory_area mt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -1,6 +1,6 @@
 @php
-    $prevUrl = !empty($postPrev) ? route('post', ['categoryCode' => $curCategory->value('code'), 'postCode' => $postPrev['code']]) : '';
-    $nextUrl = !empty($postNext) ? route('post', ['categoryCode' => $curCategory->value('code'), 'postCode' => $postNext['code']]) : '';
+    $prevUrl = !empty($postPrev) ? route('post', ['categoryCode' => $curCategory->code, 'postCode' => $postPrev['code']]) : '';
+    $nextUrl = !empty($postNext) ? route('post', ['categoryCode' => $curCategory->code, 'postCode' => $postNext['code']]) : '';
 @endphp
 <div class="col-lg-9 order-lg-2 posts-list">
     <div class="single-post">

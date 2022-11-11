@@ -14,16 +14,17 @@ class PostController extends Controller
     public function category($categoryCode)
     {
         $category = Category::query()
-            ->where('code', $categoryCode);
+            ->where('code', $categoryCode)
+            ->first();
 
         $categories = Category::query()
-            ->where('level', $category->value('level') + 1)
-            ->where('parent_id', $category->value('id'))
+            ->where('level', $category->level + 1)
+            ->where('parent_id', $category->id)
             ->orderBy('created_at', 'desc')
             ->paginate(self::CATEGORIES_ON_PAGE);
 
         $posts = Post::query()
-            ->where('category_id', '=', $category->value('id'))
+            ->where('category_id', '=', $category->id)
             ->orderBy('created_at', 'desc')
             ->paginate(3);
 
@@ -38,7 +39,7 @@ class PostController extends Controller
     {
         $categories = Category::query()
             ->where('level', 1)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('margin_left')
             ->paginate(self::CATEGORIES_ON_PAGE);
         return view('categories.index', [
             'categories' => $categories
@@ -48,10 +49,11 @@ class PostController extends Controller
     public function showPost($categoryCode, $postCode)
     {
         $category = Category::query()
-            ->where('code', $categoryCode);
+            ->where('code', $categoryCode)
+            ->first();
 
         $posts = Post::query()
-            ->where('category_id', '=', $category->value('id'))
+            ->where('category_id', '=', $category->id)
             ->orderBy('created_at', 'desc')
             ->get(['code', 'title'])->toArray();
         $postsCodes = array_column($posts, 'code');

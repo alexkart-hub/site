@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
 Route::get('/category', [\App\Http\Controllers\PostController::class, 'categories'])->name('categories');
 Route::get('/category/{categoryCode}', [\App\Http\Controllers\PostController::class, 'category'])->name('category');
-Route::get('/category/{categoryCode}/{postCode}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
+Route::get('/posts/{categoryCode}/{postCode}', [\App\Http\Controllers\PostController::class, 'showPost'])->name('post');
 Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::class, 'getImage'])->name('postImage');
 
 Route::middleware('auth')->group(function () {

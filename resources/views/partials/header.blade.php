@@ -25,13 +25,14 @@
     <link rel="stylesheet" href="/assets/css/slicknav.css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/custom/css/style.css">
+    <link rel="stylesheet" href="/custom/css/style.css?<?=time()?>">
     <!-- <link rel="stylesheet" href="/assets/css/responsive.css"> -->
 </head>
 
 <body>
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
 <header>
@@ -64,10 +65,10 @@
                                 <div class="phone_num d-none d-xl-block">
                                     @auth('web')
                                         <a href="#" class="user-name">{{ auth('web')->user()->name }}</a>
-                                        <a href="{{ route('logout') }}">Выйти</a>
+                                        <a href="{{ route('logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
                                     @endauth
                                     @guest('web')
-                                        <a href="{{ route('login') }}">Войти</a>
+                                        <a href="{{ route('login') }}">Войти<i class="fa-solid fa-door-closed"></i></a>
                                     @endguest
                                 </div>
                             </div>
@@ -79,7 +80,9 @@
                 </div>
             </div>
         </div>
+        <x-breadcrumbs :route=\Illuminate\Support\Facades\Route::current()/>
     </div>
+
 </header>
 <!-- header-end -->
 

@@ -1,7 +1,10 @@
 @extends('layout.app')
 
-@section('title', "{$curCategory->value('title')}")
+@section('title', "{$curCategory->name}")
 @section('description', "Список тем")
+@section('breadcrumbs')
+    Главная -> Список тем -> {{ $curCategory->name }}
+@endsection
 
 @section('content')
 
@@ -21,5 +24,6 @@
         @include('posts.categories.index')
         @include('partials.leftBar.index')
         @include('categories.category.contentBlock.footer')
+        @include('categories.footer')
     @endif
 @endsection

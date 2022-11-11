@@ -3,7 +3,7 @@
  * @var $curCategory
  * @var $post
  */
-    $url = route('post', ['categoryCode'=>$curCategory->value('code'), 'postCode' => $post->code]);
+    $url = route('post', ['categoryCode'=>$curCategory->code, 'postCode' => $post->code]);
 @endphp
 <div class="col-lg-12 col-md-12">
     <div class="single_jobs white-bg d-flex justify-content-between">
