@@ -18,7 +18,7 @@ class PostFactory extends Factory
             'code' => $this->faker->slug(6),
             'preview_text' => $this->faker->text(50),
             'detail_text' => $this->faker->text(),
-            'thumbnail' => $this->faker->image('posts', 640, 480, '', false),
+            'thumbnail' => $this->faker->image($_SERVER['DOCUMENT_ROOT'] . 'storage/app/public/posts', 640, 480, '', false),
         ];
     }
 }
