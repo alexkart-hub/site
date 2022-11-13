@@ -2,9 +2,7 @@
 
 @section('title', 'Главная страница')
 @section('description', 'Собираю на этом сайте всю информацию, которая мне нужна.')
-@section('breadcrumbs')
-    Главная
-@endsection
+
 @section('content')
 @include('main.header')
 <!-- catagory_area -->

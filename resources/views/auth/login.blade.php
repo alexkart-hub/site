@@ -24,7 +24,7 @@
                                 @enderror
 
                                 <div>
-                                    <a href="#" class="genric-btn auth-link mt-2">Забыли пароль?</a>
+                                    <a href="{{ route('forgot') }}" class="genric-btn auth-link mt-2">Забыли пароль?</a>
                                 </div>
 
                                 <div>

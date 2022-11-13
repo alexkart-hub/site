@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Http\Controllers\AuthController;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\View\Component;
@@ -37,6 +38,12 @@ class Breadcrumbs extends Component
         if (in_array($this->route->getName(), ['categories', 'category', 'post'])) {
             $breadcrumbs[] = new Crumb(route('categories'), 'Список тем', $this->route->getName() == 'categories');
         }
+        if (in_array($this->route->getName(), ['login', 'register', 'forgot'])) {
+            $breadcrumbs[] = new Crumb($this->route, AuthController::getTitle($this->route->getName()), true);
+        }
+        if ($this->route->getName() == 'contacts') {
+            $breadcrumbs[] = new Crumb(route('contacts'), 'Контакты', true);
+        }
         foreach ($this->route->parameters as $param => $value) {
             $crumb = $this->getBreadcrumbItem($param, $value);
             if (is_array($crumb)) {
@@ -50,7 +57,7 @@ class Breadcrumbs extends Component
         return $breadcrumbs;
     }
 
-    protected function getBreadcrumbItem($name, $value)
+    protected function getBreadcrumbItem($name, $value): Crumb|array|bool
     {
         $method = 'get' . $name;
         if (method_exists($this, $method)) {
@@ -59,7 +66,7 @@ class Breadcrumbs extends Component
         return false;
     }
 
-    protected function getCategoryCode($value)
+    protected function getCategoryCode($value): Crumb|array
     {
         $category = Category::query()
             ->where('code', $value)
@@ -84,7 +91,7 @@ class Breadcrumbs extends Component
         }
     }
 
-    protected function getPostCode($value)
+    protected function getPostCode($value): Crumb
     {
         $post = Post::query()
             ->where('code', $value)
