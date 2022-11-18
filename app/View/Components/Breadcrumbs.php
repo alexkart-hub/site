@@ -51,7 +51,11 @@ class Breadcrumbs extends Component
                     $breadcrumbs[] = $item;
                 }
             } else {
-                $breadcrumbs[] = $crumb;
+                if ($crumb) {
+                    $breadcrumbs[] = $crumb;
+                } else {
+                    $breadcrumbs[] = new Crumb('', $value->id, true);
+                }
             }
         }
         return $breadcrumbs;
@@ -97,6 +101,11 @@ class Breadcrumbs extends Component
             ->where('code', $value)
             ->first();
         return new Crumb(route('post', ['categoryCode' => $post->category->code, 'postCode' => $value]), $post->title, $this->route->getName() == 'post');
+    }
+
+    protected function getUser($user): Crumb
+    {
+        return new Crumb(route('profile', $user), $user->name, $this->route->getName() == 'profile');
     }
 }
 

@@ -132,6 +132,7 @@
 
 
 <script src="/assets/js/main.js"></script>
+@yield('script')
 </body>
 
 </html>

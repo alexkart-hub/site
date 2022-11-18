@@ -63,6 +63,7 @@ class PostController extends Controller
             ->where('code', $postCode)
             ->first();
 
+        $comments = $post->comments();
         return view('posts.post.index', [
             'post' => $post,
             'curCategory' => $category,
@@ -76,6 +77,7 @@ class PostController extends Controller
         $post = Post::findOrFail($postId);
         $category = Category::findOrFail($post->category_id);
         $post->comments()->create($request->validated());
-        return redirect(route('post', ['categoryCode' => $category->code, 'postCode' => $post->code]));
+        $url = route('post', ['categoryCode' => $category->code, 'postCode' => $post->code]);
+        return redirect($url . '#comments');
     }
 }

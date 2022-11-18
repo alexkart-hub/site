@@ -24,6 +24,7 @@ Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::cla
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
     Route::post('/posts/comment/{postId}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
+    Route::get('/user/profile/{user:name}', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 });
 
 Route::middleware('guest')->group(function () {

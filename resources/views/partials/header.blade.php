@@ -64,7 +64,7 @@
                             <div class="Appointment">
                                 <div class="phone_num d-none d-xl-block">
                                     @auth('web')
-                                        <a href="#" class="user-name">{{ auth('web')->user()->name }}</a>
+                                        <a href="{{ route('profile', auth('web')->user()->name) }}" class="user-name">{{ auth('web')->user()->name }}</a>
                                         <a href="{{ route('logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
                                     @endauth
                                     @guest('web')
