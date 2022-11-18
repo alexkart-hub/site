@@ -22,9 +22,11 @@ Route::get('/posts/{categoryCode}/{postCode}', [\App\Http\Controllers\PostContro
 Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::class, 'getImage'])->name('postImage');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout', ['route'=>Route::currentRouteName()]])->name('logout');
     Route::post('/posts/comment/{postId}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
     Route::get('/user/profile/{user:name}', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+    Route::post('/comment-approve', [\App\Http\Controllers\PostController::class, 'commentApprove']);
+    Route::post('/comment-delete', [\App\Http\Controllers\PostController::class, 'commentDelete']);
 });
 
 Route::middleware('guest')->group(function () {

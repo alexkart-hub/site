@@ -171,3 +171,9 @@ i {
 .header-area .main-header-area .main-menu ul li a i:hover {
     color: #00D363 !important;
 }
+/* comments -------------------------------------------------------- */
+
+.deleteForm .reply-btn button,
+.approveForm .reply-btn button {
+    border: none;
+}

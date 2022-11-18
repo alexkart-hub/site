@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ForgotPassword;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
@@ -27,7 +28,7 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
         if (auth('web')->attempt($data)) {
-            return redirect(route('home'));
+            return redirect($request->get('route') ?? route('home'));
         }
         return redirect(route('login'))
             ->withErrors(['email' => 'Пользователь не найден, либо данные введены неправильно']);
@@ -59,7 +60,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth('web')->logout();
-        return redirect(route('home'));
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function showForgotForm()

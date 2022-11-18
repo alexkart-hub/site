@@ -32,4 +32,11 @@ class Helper extends Model
         }
         return $word;
     }
+
+    public static function getDate($date = false, $format = '')
+    {
+        $format = $format ?: 'd-m-Y H:i:s';
+        $timestamp = ($date ? date_timestamp_get($date) : time()) + 3 * 3600;
+        return date($format, $timestamp);
+    }
 }

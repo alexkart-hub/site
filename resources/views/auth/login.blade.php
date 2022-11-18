@@ -13,6 +13,7 @@
 
                             <form class="space-y-5 mt-5" action="{{ route('login_process') }}" method="POST">
                                 @csrf
+                                <input name="route" type="hidden" value="{{$_SERVER['HTTP_REFERER']}}"/>
                                 <input name="email" type="text" class="single-input @error('email') border-danger @enderror" placeholder="Email"/>
                                 @error('email')
                                 <p class="danger">{{ $message }}</p>

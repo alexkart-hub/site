@@ -6,7 +6,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                              <textarea class="form-control w-100 @error('text') border-danger @enderror" name="text" id="comment" cols="30" rows="9"
+                              <textarea class="form-control w-100 @error('text') border-danger @enderror" name="text"
+                                        id="comment" cols="30" rows="9"
                                         placeholder="Текст комментария"></textarea>
                     @error('text')
                     <p class="danger">{{ $message }}</p>
@@ -20,7 +21,7 @@
     </form>
 </div>
 <div class="comments-area">
-    <h4>05 Comments</h4>
+    <h4>{{ $count = $post->comments()->count() }} {{ \App\Models\Helper::getCommentWordByCount($count) }}</h4>
     @foreach($post->comments as $comment)
         <div class="comment-list">
             <div class="single-comment justify-content-between d-flex">
@@ -37,11 +38,32 @@
                                 <h5>
                                     <a href="#">{{ $comment->user->name }}</a>
                                 </h5>
-                                <p class="date">December 4, 2017 at 3:12 pm </p>
+                                <p class="date">{{ \App\Models\Helper::getDate($comment->created_at) }}</p>
                             </div>
-                            <div class="reply-btn">
-                                <a href="#" class="btn-reply text-uppercase">reply</a>
-                            </div>
+                            @if (auth('web')->user() && auth('web')->user()->name == 'admin')
+                                @if (!$comment->approved)
+                                    <form class="approveForm"  data-id="{{ $comment->id }}" data-token="{{ csrf_token() }}">
+                                        <div class="reply-btn">
+                                            <button
+                                                id="submit"
+                                                class="btn-reply text-uppercase"
+                                            >
+                                                Подтвердить
+                                            </button>
+                                        </div>
+                                    </form>
+                                @endif
+                                    <form class="deleteForm"  data-id="{{ $comment->id }}" data-token="{{ csrf_token() }}">
+                                        <div class="reply-btn">
+                                            <button
+                                                id="submit"
+                                                class="btn-reply text-uppercase"
+                                            >
+                                                Удалить
+                                            </button>
+                                        </div>
+                                    </form>
+                            @endif
                         </div>
                     </div>
                 </div>

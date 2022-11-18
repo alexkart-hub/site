@@ -21,7 +21,14 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+        if (auth('web')->user() && auth('web')->user()->name == 'admin') {
+            $comments = $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+        } else {
+            $comments = $this->hasMany(Comment::class)
+                ->orderBy('created_at', 'desc')
+                ->where('approved', 1);
+        }
+        return $comments;
     }
 
     public function category()
