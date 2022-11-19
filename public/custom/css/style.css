@@ -182,3 +182,8 @@ i {
 .hide {
     display: none !important;
 }
+
+.single-comment p.not-approved-text {
+    margin: 0 15px;
+    font-size: 14px;
+}

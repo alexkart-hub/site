@@ -10,7 +10,7 @@
                                         id="comment" cols="30" rows="9"
                                         placeholder="Текст комментария"></textarea>
                     @error('text')
-                    {{--                    <p class="danger">{{ $message }}</p>--}}
+                        <p class="danger">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
@@ -69,6 +69,9 @@
                                 @endif
                             @endif
                         </div>
+                        @if (auth('web')->user() && auth('web')->user()->id == $comment->user_id && !$comment->approved)
+                            <p class="not-approved-text">Комментарий пока не подтвержден. Его видите только Вы.</p>
+                        @endif
                     </div>
                 </div>
             </div>
