@@ -3,7 +3,6 @@ $('.approveForm').on('submit',function(event){
 
     var id = $(this).data('id');
     var token = $(this).data('token');
-    console.log(id);
 
     $.ajax({
         url: "/comment-approve",
@@ -12,8 +11,8 @@ $('.approveForm').on('submit',function(event){
             "_token": token,
             id:id
         },
-        success:function(response){
-            console.log(response);
+        success:function(){
+            $('#comment-approve-delete-block-'+id).addClass('hide');
         },
     });
 });
@@ -23,7 +22,6 @@ $('.deleteForm').on('submit',function(event){
 
     var id = $(this).data('id');
     var token = $(this).data('token');
-    console.log(id);
 
     $.ajax({
         url: "/comment-delete",
@@ -32,8 +30,8 @@ $('.deleteForm').on('submit',function(event){
             "_token": token,
             id:id
         },
-        success:function(response){
-            console.log(response);
+        success:function(){
+            $('#comment-'+id).addClass('hide');
         },
     });
 });

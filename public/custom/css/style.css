@@ -173,7 +173,12 @@ i {
 }
 /* comments -------------------------------------------------------- */
 
-.deleteForm .reply-btn button,
-.approveForm .reply-btn button {
+.reply-btn .deleteForm button,
+.reply-btn .approveForm button {
     border: none;
+}
+
+.d-flex.hide,
+.hide {
+    display: none !important;
 }
