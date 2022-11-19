@@ -2,9 +2,6 @@
 
 @section('title', "Список тем")
 @section('description', "Список тем")
-@section('breadcrumbs')
-    Главная -> Список тем
-@endsection
 
 @section('content')
 

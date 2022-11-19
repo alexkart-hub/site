@@ -142,30 +142,14 @@ a.user-name{
     padding-left: 0.8rem;
 }
 
-i::before,
-i {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 700;
-}
 
-.fa-door-closed,
-.fa-door-open {
+i.fa-door-closed,
+i.fa-door-open {
+    font-family: "Font Awesome 5 Free";
     color: white !important;
     margin-left: 10px;
     font-style: normal;
     font-weight: 700;
-}
-
-.fa-house {
-    color: white !important;
-    margin-right: 10px;
-    font-style: normal;
-}
-
-.fa-house:before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f015";
-    font-size: 0.9rem;
 }
 
 .header-area .main-header-area .main-menu ul li a i:hover {
@@ -176,6 +160,7 @@ i {
 .reply-btn .deleteForm button,
 .reply-btn .approveForm button {
     border: none;
+    cursor: pointer;
 }
 
 .d-flex.hide,

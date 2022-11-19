@@ -33,6 +33,23 @@ class Breadcrumbs extends Component
 
     public function getBreadcrumbs()
     {
+        $prefix = $this->route->getPrefix();
+        if ($prefix == 'admin') {
+            return $this->getAdminBreadcrumbs();
+        } else {
+            return $this->getWebBreadcrumbs();
+        }
+    }
+
+    public function getAdminBreadcrumbs()
+    {
+        $breadcrumbs = [];
+        $breadcrumbs[] = new Crumb(route('admin.main'), 'Админка', $this->route->getName() == 'admin.main');
+        return $breadcrumbs;
+    }
+
+    public function getWebBreadcrumbs()
+    {
         $breadcrumbs = [];
         $breadcrumbs[] = new Crumb(route('home'), 'Главная', $this->route->getName() == 'home');
         if (in_array($this->route->getName(), ['categories', 'category', 'post'])) {

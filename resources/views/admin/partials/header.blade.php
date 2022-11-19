@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    <meta name="description" content="@yield('description')">
+{{--    <title>@yield('title')</title>--}}
+{{--    <meta name="description" content="@yield('description')">--}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/assets/css/slicknav.css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/custom/css/style.css?<?=time()?>">
+    <link rel="stylesheet" href="/custom/css/style.css?<?//=time()?>">
     <!-- <link rel="stylesheet" href="/assets/css/responsive.css"> -->
 </head>
 
@@ -43,7 +43,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="{{ route('home') }}">
+                                <a href="{--><!--{ route('home') }}">
                                     <img src="/assets/img/logo.png" alt="">
                                 </a>
                             </div>
@@ -56,11 +56,6 @@
                                         <li><a href="{{ route('categories') }}">Темы</a></li>
                                         <li><a href="{{ route('contacts') }}">Контакты</a></li>
                                         <li><a href="#">Избранное</a></li>
-                                        @auth('admin')
-                                        <li><a href="{{ route('admin.main') }}">Админка</a></li>
-                                        @else
-                                            <li><a href="{{ route('admin.login') }}">Админка</a></li>
-                                        @endauth
                                     </ul>
                                 </nav>
                             </div>
@@ -68,13 +63,10 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="phone_num d-none d-xl-block">
-                                    @auth('web')
-                                        <a href="{{ route('profile', auth('web')->user()->name) }}" class="user-name">{{ auth('web')->user()->name }}</a>
-                                        <a href="{{ route('logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
+                                    @auth('admin')
+{{--                                        <a href="{{ route('admin.profile', auth('admin')->user()->name) }}" class="user-name">{{ auth('admin')->user()->name }}</a>--}}
+                                        <a href="{{ route('admin.logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
                                     @endauth
-                                    @guest('web')
-                                        <a href="{{ route('login') }}">Войти<i class="fa-solid fa-door-closed"></i></a>
-                                    @endguest
                                 </div>
                             </div>
                         </div>
