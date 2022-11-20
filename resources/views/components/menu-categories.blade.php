@@ -12,6 +12,9 @@
     <h4 class="widget_title">Темы</h4>
     <ul class="list cat-list">
         @foreach($categories as $category)
+            @if ($category->posts()->count() <= 0)
+                @continue
+            @endif
             @php
                 $isParent = $category->margin_right - $category->margin_left > 1;
                 $selected = $category->id == $curCategory->id;

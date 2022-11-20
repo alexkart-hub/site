@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     const CATEGORIES_ON_PAGE = 12;
+    const POSTS_ON_PAGE = 20;
 
     public function category($categoryCode)
     {
@@ -27,7 +28,7 @@ class PostController extends Controller
         $posts = Post::query()
             ->where('category_id', '=', $category->id)
             ->orderBy('created_at', 'desc')
-            ->paginate(3);
+            ->paginate(self::POSTS_ON_PAGE);
 
         return view('categories.category.index', [
             'posts' => $posts,

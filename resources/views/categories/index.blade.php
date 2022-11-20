@@ -8,9 +8,11 @@
     @include('categories.header')
 
     @foreach($categories as $category)
-        @include('categories.item',[
-            'category' => $category
-        ])
+        @if ($category->posts()->count() > 0)
+            @include('categories.item',[
+                'category' => $category
+            ])
+        @endif
     @endforeach
 
     @include('categories.footer')
