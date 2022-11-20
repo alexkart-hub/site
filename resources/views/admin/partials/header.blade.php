@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-{{--    <title>@yield('title')</title>--}}
-{{--    <meta name="description" content="@yield('description')">--}}
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/assets/css/slicknav.css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/custom/css/style.css?<?//=time()?>">
+    <link rel="stylesheet" href="/custom/css/style.css?<?=time()?>">
     <!-- <link rel="stylesheet" href="/assets/css/responsive.css"> -->
 </head>
 
@@ -82,4 +82,7 @@
 
 </header>
 <!-- header-end -->
+<div class="job_listing_area job_details_area plus_padding">
+    <div class="container">
+        <div class="row pt-5">
 

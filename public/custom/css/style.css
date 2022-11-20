@@ -172,3 +172,44 @@ i.fa-door-open {
     margin: 0 15px;
     font-size: 14px;
 }
+
+/* admin --------------------------------------*/
+
+/* ---- posts ---------------------------------*/
+
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now button.heart_mark {
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #00D363;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    background: #EFFDF5;
+    margin-left: 15px;
+    border-width: 0px;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_right .apply_now button.heart_mark:hover {
+    background: #00D363;
+    color: #fff;
+}
+
+i.fa-xmark {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    font-style: normal;
+    font-size: large;
+}
+
+i.fa-xmark:before {
+    content: "\f00d";
+}
+
+.job_details_area .apply_job_form {
+    margin-top: 0;
+    padding: 40px;
+}

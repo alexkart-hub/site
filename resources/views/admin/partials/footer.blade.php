@@ -1,3 +1,6 @@
+</div>
+</div>
+</div>
 <!-- footer start -->
 <footer class="footer">
     <div class="footer_top">

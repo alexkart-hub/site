@@ -4,10 +4,6 @@
 @section('description', "Админка")
 
 @section('content')
-    <!-- job_listing_area_start  -->
-    <div class="job_listing_area plus_padding">
-        <div class="container">
-            <div class="row pt-5">
                 <div class="col-lg-9  order-lg-2">
                     <div class="recent_joblist_wrap">
                         <div class="recent_joblist white-bg ">
@@ -221,81 +217,4 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3  order-lg-1">
-                    <div class="job_filter white-bg">
-                        <div class="form_inner white-bg">
-                            <h2>Меню</h2>
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Заметки
-                                            </button>
-                                        </h2>
-                                    </div>
-
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <ul class="list cat-list">
-                                                <li>
-                                                    <a href="#"
-                                                       class="d-flex active">
-                                                        <p>Добавить</p>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Разделы
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            Некоторый заполнитель для второй панели аккордеона. По умолчанию эта панель скрыта.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Другое
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            И, наконец, заполнитель для третьей и последней панели аккордеона. По умолчанию эта панель скрыта.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Другое
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            И, наконец, заполнитель для третьей и последней панели аккордеона. По умолчанию эта панель скрыта.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- job_listing_area_end  -->
 @endsection
