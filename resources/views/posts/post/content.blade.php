@@ -12,16 +12,8 @@
             <li><a href="#comments"><i class="fa fa-comments"></i> {{ $count = $post->comments()->count() }} {{\App\Models\Helper::getCommentWordByCount($count)}}</a></li>
         </ul>
         <span class="excert">
-            {{ $post->preview_text }}
+            {!! $post->preview_text !!}
         </span>
-        <p>{{ $post->detail_text }}</p>
-        <div class="quote-wrapper">
-            <div class="quotes">
-                MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                should have to spend money on boot camp when you can get the MCSE study materials yourself at
-                a fraction of the camp price. However, who has the willpower to actually sit through a
-                self-imposed MCSE training.
-            </div>
-        </div>
+        <p>{!! $post->detail_text !!}</p>
     </div>
 </div>

@@ -6,8 +6,14 @@
 @section('content')
     <div class="col-lg-9 order-lg-2">
         <div class="apply_job_form white-bg">
-            <h4>@if(isset($post))Редактировать заметку {{ $post->title }}@elseДобавить новую@endif</h4>
-            <form enctype="multipart/form-data" action="{{ isset($post) ? route('admin.posts.update', $post->id) : route('admin.posts.store') }}" method="POST">
+            <h4>@if(isset($post))
+                    Редактировать заметку {{ $post->title }}
+                @else
+                    Добавить новую
+                @endif</h4>
+            <form enctype="multipart/form-data"
+                  action="{{ isset($post) ? route('admin.posts.update', $post->id) : route('admin.posts.store') }}"
+                  method="POST">
                 @csrf
                 @if (isset($post))
                     @method('PUT')
@@ -15,17 +21,27 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="category_id" type="text" placeholder="Категория" @error('category_id') class="border-danger" @enderror
-                            @if (isset($post)) value="{{ $post->category_id }}" @endif>
+                            <select name="category_id" class="wide mb-3 @error('title') border-danger @enderror">
+                                @if (!isset($post))
+                                <option data-display="Выберите категорию">Выберите категорию</option>
+                                @endif
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                            @if(isset($post) && $post->category_id == $category->id) selected @endif>
+                                        {{ ($category->level > 1 ? str_repeat(' - ', $category->level - 1) . '   ' : '') . $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                            <p class="danger">{{ $message . ' Вероятно, Вы не выбрали категорию' }}</p>
+                            @enderror
                         </div>
-                        @error('category_id')
-                        <p class="danger">{{ $message }}</p>
-                        @enderror
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="title" type="text" placeholder="Название" @error('title') class="border-danger" @enderror
-                            @if (isset($post)) value="{{ $post->title }}" @endif>
+                            <input name="title" type="text" placeholder="Название" @error('title') class="border-danger"
+                                   @enderror
+                                   @if (isset($post)) value="{{ $post->title }}" @endif>
                         </div>
                         @error('title')
                         <p class="danger">{{ $message }}</p>
@@ -33,8 +49,9 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="code" type="text" placeholder="Код" @error('code') class="border-danger" @enderror
-                            @if (isset($post)) value="{{ $post->code }}" @endif>
+                            <input name="code" type="text" placeholder="Код" @error('code') class="border-danger"
+                                   @enderror
+                                   @if (isset($post)) value="{{ $post->code }}" @endif>
                         </div>
                         @error('code')
                         <p class="danger">{{ $message }}</p>
@@ -42,17 +59,18 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="preview_text" type="text" placeholder="Описание" @error('preview_text') class="border-danger" @enderror
-                            @if (isset($post)) value="{{ $post->preview_text }}" @endif>
+                            <input name="preview_text" type="text" placeholder="Описание"
+                                   @error('preview_text') class="border-danger" @enderror
+                                   @if (isset($post)) value="{{ $post->preview_text }}" @endif>
                         </div>
                         @error('preview_text')
                         <p class="danger">{{ $message }}</p>
                         @enderror
                     </div>
                     @if (isset($post) && $post->thumbnail)
-                    <div class="col-md-12">
-                        <img src="/storage/posts/{{ $post->thumbnail }}">
-                    </div>
+                        <div class="col-md-12 feature-img">
+                            <img class="img-fluid" src="/storage/posts/{{ $post->thumbnail }}">
+                        </div>
                     @endif
                     <div class="col-md-12">
                         <div class="input-group">
@@ -62,7 +80,9 @@
                                 </button>
                             </div>
                             <div class="custom-file">
-                                <input name="thumbnail" type="file" class="custom-file-input @error('preview_text') border-danger @enderror" id="inputGroupFile03"
+                                <input name="thumbnail" type="file"
+                                       class="custom-file-input @error('thumbnail') border-danger @enderror"
+                                       id="inputGroupFile03"
                                        aria-describedby="inputGroupFileAddon03">
                                 <label class="custom-file-label" for="inputGroupFile03">Добавить картинку</label>
                             </div>
@@ -73,7 +93,8 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <textarea name="detail_text" id="" cols="30" rows="10" placeholder="Текст" @error('detail_text') class="border-danger" @enderror
+                            <textarea name="detail_text" id="" cols="30" rows="10" placeholder="Текст"
+                                      @error('detail_text') class="border-danger" @enderror
                             >@if (isset($post)){{ $post->detail_text }}@endif</textarea>
                         </div>
                         @error('detail_text')
@@ -90,3 +111,7 @@
         </div>
     </div>
 @endsection
+@section('script')
+    <script src="/custom/js/ajax/post_add_edit.js?{{ time() }}"></script>
+@endsection
+

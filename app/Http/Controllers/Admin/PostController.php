@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostFormRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -29,13 +30,18 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create', []);
+        $categories = Category::query()
+            ->orderBy('margin_left', 'asc')
+            ->get();
+        return view('admin.posts.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  PostFormRequest  $request
+     * @param PostFormRequest $request
      */
     public function store(PostFormRequest $request)
     {
@@ -46,7 +52,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -57,27 +63,31 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      */
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        $categories = Category::query()
+            ->orderBy('margin_left', 'asc')
+            ->get();
         return view('admin.posts.create', [
-            'post' => $post
+            'post' => $post,
+            'categories' => $categories
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  PostFormRequest  $request
-     * @param  int  $id
+     * @param PostFormRequest $request
+     * @param int $id
      */
     public function update(PostFormRequest $request, $id)
     {
         $post = Post::findOrFail($id);
         $data = $request->validated();
-        if($request->has('thumbnail')) {
+        if ($request->has('thumbnail')) {
             $thumbnail = str_replace('public/posts/', '', $request->file('thumbnail')->store('public/posts'));
             $data['thumbnail'] = $thumbnail;
         }
@@ -88,7 +98,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      */
     public function destroy($id)
     {

@@ -21,6 +21,14 @@
     text-decoration: underline;
 }
 
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb {
+    overflow: hidden;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb img{
+    width: 100%;
+}
+
 .post-nav-img{
     background-color: #fff;
     opacity: 0.8;

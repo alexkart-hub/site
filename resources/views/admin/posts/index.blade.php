@@ -31,40 +31,47 @@
         <div class="job_lists m-0">
             <div class="row">
                 @foreach($posts as $post)
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="/assets/img/svg_icon/1.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="{{ route('post', ['postCode' => $post->code, 'categoryCode' => $post->category->code]) }}"><h2>{{ $post->title }}</h2></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p><i class="fa fa-map-marker"></i>{{ $post->category->title }}</p>
-                                    </div>
-                                    <div class="location">
-                                        <p><i class="fa fa-clock-o"></i>{{ \App\Models\Helper::getDate($post->updated_at) }}</p>
+                    @php
+                        $imgSrc = $post->thumbnail ? route('postImage', ['filename' => $post->thumbnail]) : "/assets/img/svg_icon/1.svg";
+                    @endphp
+                    <div class="col-lg-12 col-md-12">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb"@if($post->thumbnail) style="padding: 0" @endif>
+                                    <img src="{{ $imgSrc }}" alt="{{ $post->title }}">
+                                </div>
+                                <div class="jobs_conetent">
+                                    <a href="{{ route('post', ['postCode' => $post->code, 'categoryCode' => $post->category->code]) }}">
+                                        <h2>{{ $post->title }}</h2></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="location">
+                                            <p><i class="fa fa-map-marker"></i>{{ $post->category->name }}</p>
+                                        </div>
+                                        <div class="location">
+                                            <p>
+                                                <i class="fa fa-clock-o"></i>{{ \App\Models\Helper::getDate($post->updated_at) }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now d-flex">
+                            <div class="jobs_right">
+                                <div class="apply_now d-flex">
 
-                                <a href="{{ route('admin.posts.edit', $post->id) }}" class="boxed-btn3">Редактировать</a>
-                                <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="heart_mark" type="submit"> <i class="fa-solid fa-xmark"></i> </button>
-                                </form>
-                            </div>
-                            <div class="date">
-                                <p>{{ \App\Models\Helper::getDate($post->created_at) }}</p>
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}" class="boxed-btn3">Редактировать</a>
+                                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="heart_mark" type="submit"><i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="date">
+                                    <p>{{ \App\Models\Helper::getDate($post->created_at) }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             {{ $posts->links('partials.pagination') }}
