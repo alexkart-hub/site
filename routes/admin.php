@@ -9,6 +9,7 @@ Route::middleware('guest:admin')->group(function () {
 
 Route::middleware('auth:admin')->group(function () {
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
     Route::get('', [\App\Http\Controllers\Admin\IndexController::class, 'index'])->name('main');
     Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
 });

@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
-@section('title', "Админка")
-@section('description', "Админка")
+@section('title', "Заметки")
+@section('description', "Заметки")
 
 @section('content')
     <div class="col-lg-9   order-lg-2">

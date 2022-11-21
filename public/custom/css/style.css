@@ -190,6 +190,10 @@ i.fa-door-open {
     height: 40px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
     border-radius: 5px;
     color: #00D363;
     font-size: 14px;
@@ -220,4 +224,58 @@ i.fa-xmark:before {
 .job_details_area .apply_job_form {
     margin-top: 0;
     padding: 40px;
+}
+
+/* ------- categories -------------------------------------------*/
+
+.job_listing_area .admin_categories .job_lists .single_jobs {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid transparent;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_right .apply_now a.boxed-btn3 {
+    padding: 4px 27px 4px 27px;
+    font-size: 14px;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left {
+    margin-left: 10px;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_right .apply_now a.heart_mark {
+    width: 31px;
+    height: 31px;
+    line-height: 31px;
+    margin-left: 15px;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_right .apply_now a.heart_mark:hover {
+    background: #00D363;
+    color: #fff;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h3,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h4,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h5,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h6 {
+    margin-bottom: 0;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h3:hover,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h4:hover,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h5:hover,
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h6:hover {
+    color: #00D363;
 }
