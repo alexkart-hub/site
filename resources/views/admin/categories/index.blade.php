@@ -20,7 +20,10 @@
                                 <div class="col-md-6">
                                     <h2>Дерево категорий</h2>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
+                                    <a href="{{ route('admin.categories.create') }}" class="boxed-btn3">Добавить</a>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="serch_cat d-flex justify-content-end">
                                         <select>
                                             <option data-display="Most Recent">Most Recent</option>
@@ -46,13 +49,17 @@
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
                                         <div class="jobs_conetent">
-                                            <a href="job_details.html"><h{{ $hNum }}>{{ $category->name }}</h{{ $hNum }}></a>
+                                            <a href="{{ route('category', $category->code) }}"><h{{ $hNum }}>{{ $category->name }}</h{{ $hNum }}></a>
                                         </div>
                                     </div>
                                     <div class="jobs_right">
                                         <div class="apply_now d-flex">
-                                            <a href="job_details.html" class="boxed-btn3">Apply Now</a>
-                                            <a class="heart_mark" href="#"><i class="fa-solid fa-xmark"></i></a>
+                                            <a href="{{ route('admin.categories.edit', $category->id) }}" class="boxed-btn3">Редактировать</a>
+                                            <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            <button type="submit" class="heart_mark"><i class="fa-solid fa-xmark"></i></button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

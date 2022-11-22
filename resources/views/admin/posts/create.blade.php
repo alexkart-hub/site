@@ -20,9 +20,9 @@
                 @endif
                 <div class="col-md-12">
                     <div class="switch-wrap d-flex justify-content-end align-items-center">
-                        <p class="mr-3 mb-0" id="text_is_published">{{ $post->is_published ? 'Опубликовано' : 'Опубликовать' }}</p>
+                        <p class="mr-3 mb-0" id="text_is_published">{{ isset($post) && $post->is_published ? 'Опубликовано' : 'Опубликовать' }}</p>
                         <div class="confirm-switch">
-                            <input name="is_published" type="checkbox" id="is_published" @if($post->is_published) checked @endif>
+                            <input name="is_published" type="checkbox" id="is_published" @if(isset($post) && $post->is_published) checked @endif>
                             <label for="is_published"></label>
                         </div>
                         @error('is_published')
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input_field">
-                            <select name="category_id" class="wide mb-3 @error('title') border-danger @enderror">
+                            <select name="category_id" class="wide mb-3 @error('category_id') border-danger @enderror">
                                 @if (!isset($post))
                                 <option data-display="Выберите категорию">Выберите категорию</option>
                                 @endif

@@ -258,7 +258,7 @@ i.fa-xmark:before {
     margin-left: 10px;
 }
 
-.job_listing_area .admin_categories .job_lists .single_jobs .jobs_right .apply_now a.heart_mark {
+.job_listing_area .admin_categories .job_lists .single_jobs .jobs_right .apply_now button.heart_mark {
     width: 31px;
     height: 31px;
     line-height: 31px;
