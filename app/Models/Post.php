@@ -17,6 +17,7 @@ class Post extends Model
         'preview_text',
         'detail_text',
         'thumbnail',
+        'is_published'
     ];
 
     public function comments()

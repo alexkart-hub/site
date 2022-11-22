@@ -27,6 +27,7 @@ class PostController extends Controller
 
         $posts = Post::query()
             ->where('category_id', '=', $category->id)
+            ->where('is_published', '1')
             ->orderBy('created_at', 'desc')
             ->paginate(self::POSTS_ON_PAGE);
 
@@ -65,7 +66,6 @@ class PostController extends Controller
             ->where('code', $postCode)
             ->first();
 
-        $comments = $post->comments();
         return view('posts.post.index', [
             'post' => $post,
             'curCategory' => $category,

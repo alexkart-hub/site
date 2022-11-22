@@ -226,6 +226,14 @@ i.fa-xmark:before {
     padding: 40px;
 }
 
+.not-published {
+    background-color: rgb(0, 29, 56, 0.3);
+}
+
+.not-published p{
+    color: black !important;
+}
+
 /* ------- categories -------------------------------------------*/
 
 .job_listing_area .admin_categories .job_lists .single_jobs {

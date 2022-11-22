@@ -35,7 +35,7 @@
                         $imgSrc = $post->thumbnail ? route('postImage', ['filename' => $post->thumbnail]) : "/assets/img/svg_icon/1.svg";
                     @endphp
                     <div class="col-lg-12 col-md-12">
-                        <div class="single_jobs white-bg d-flex justify-content-between">
+                        <div class="single_jobs white-bg d-flex justify-content-between @if(!$post->is_published) not-published @endif">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb"@if($post->thumbnail) style="padding: 0" @endif>
                                     <img src="{{ $imgSrc }}" alt="{{ $post->title }}">

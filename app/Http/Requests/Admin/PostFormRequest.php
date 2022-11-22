@@ -30,6 +30,7 @@ class PostFormRequest extends FormRequest
             'preview_text' => ['required'],
             'detail_text' => ['required'],
             'thumbnail' => ['image'],
+            'is_published' => [''],
         ];
     }
 }

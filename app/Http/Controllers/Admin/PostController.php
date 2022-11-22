@@ -91,6 +91,7 @@ class PostController extends Controller
             $thumbnail = str_replace('public/posts/', '', $request->file('thumbnail')->store('public/posts'));
             $data['thumbnail'] = $thumbnail;
         }
+        $data['is_published'] = isset($data['is_published']);
         $post->update($data);
         return redirect(route('admin.posts.edit', $id));
     }
