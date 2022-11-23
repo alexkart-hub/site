@@ -31,7 +31,7 @@
                     </div>
                     <div class="desc">
                         <p class="comment">
-                            {{ $comment->text }}
+                            {!! $comment->text !!}
                         </p>
                         <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/assets/css/gijgo.css">
     <link rel="stylesheet" href="/assets/css/animate.min.css">
     <link rel="stylesheet" href="/assets/css/slicknav.css">
-
+    @yield('css')
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/custom/css/style.css?<?=time()?>">
     <!-- <link rel="stylesheet" href="/assets/css/responsive.css"> -->
