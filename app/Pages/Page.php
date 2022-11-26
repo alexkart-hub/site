@@ -9,12 +9,31 @@ class Page implements WebPage
     protected $view;
     protected $data;
     protected $route;
+    protected $title;
+    protected $description;
 
     public function __construct()
     {
         $this->route = Route::current();
         $this->view = $this->route->getName() . '.index';
         $this->init();
+        $this->setData();
+        $this->setMeta();
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getView()
+    {
+        return $this->view;
     }
 
     public function getData()
@@ -22,18 +41,20 @@ class Page implements WebPage
         return $this->data;
     }
 
-    public function getDescription()
+    protected function setMeta()
     {
-        // TODO: Implement getDescription() method.
+        $this->title = '';
+        $this->description = '';
     }
 
-    public function getTitle()
+    protected function setData()
     {
-        // TODO: Implement getTitle() method.
+        $this->data = [
+            'page' => $this
+        ];
     }
 
-    public function getView()
+    protected function init()
     {
-        return $this->view;
     }
 }

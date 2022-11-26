@@ -1,7 +1,5 @@
 @extends('layout.app')
 
-@section('title', 'Регистрация')
-
 @section('content')
     <section class="section-padding">
         <div class="container">

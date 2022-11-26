@@ -1,8 +1,5 @@
 @extends('layout.app')
 
-@section('title', 'Контакты')
-@section('description', 'Если у Вас возникли вопросы, воспользуйтесь контактной формой.')
-
 @section('content')
     @include('contacts.header')
     <div class="row pt-5">

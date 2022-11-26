@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 
 class PostController extends WebController
 {
-    public function index()
-    {
-        return view($this->page->getView(), $this->page->getData());
-    }
-
     public function comment($postId, CommentForm $request)
     {
         $post = Post::findOrFail($postId);

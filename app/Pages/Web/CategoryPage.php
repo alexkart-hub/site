@@ -15,26 +15,26 @@ class CategoryPage extends Page
     {
         $this->view = 'categories.' . $this->route->getName() . '.index';
         $categoryCode = $this->route->parameter('categoryCode');
-        $category = Category::query()
+        $this->category = Category::query()
             ->where('code', $categoryCode)
             ->first();
 
-        $categories = Category::query()
-            ->where('level', $category->level + 1)
-            ->where('parent_id', $category->id)
+        $this->categories = Category::query()
+            ->where('level', $this->category->level + 1)
+            ->where('parent_id', $this->category->id)
             ->orderBy('created_at', 'desc')
             ->paginate(self::CATEGORIES_ON_PAGE);
 
-        $posts = Post::query()
-            ->where('category_id', '=', $category->id)
+        $this->posts = Post::query()
+            ->where('category_id', '=', $this->category->id)
             ->where('is_published', '1')
             ->orderBy('created_at', 'desc')
             ->paginate(self::POSTS_ON_PAGE);
+    }
 
-        $this->data = [
-            'posts' => $posts,
-            'curCategory' => $category,
-            'categories' => $categories
-        ];
+    protected function setMeta()
+    {
+        $this->title = $this->category->title;
+        $this->description = $this->category->description;
     }
 }

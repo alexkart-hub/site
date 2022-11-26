@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function index()
-    {
-        return view('contacts.index');
-    }
-
     public function sendContactForm(ContactFormRequest $request)
     {
         Mail::to(env('MAIL_USERNAME'))

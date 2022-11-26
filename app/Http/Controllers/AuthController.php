@@ -16,11 +16,6 @@ class AuthController extends Controller
         'forgot' => 'Восстановление пароля',
     ];
 
-    public function showLoginForm()
-    {
-        return view('auth.login');
-    }
-
     public function login(Request $request)
     {
         $data = $request->validate([
@@ -32,11 +27,6 @@ class AuthController extends Controller
         }
         return redirect(route('login'))
             ->withErrors(['email' => 'Пользователь не найден, либо данные введены неправильно']);
-    }
-
-    public function showRegisterForm()
-    {
-        return view('auth.register');
     }
 
     public function register(Request $request)
@@ -63,10 +53,6 @@ class AuthController extends Controller
         return redirect($_SERVER['HTTP_REFERER']);
     }
 
-    public function showForgotForm()
-    {
-        return view('auth.forgot');
-    }
     public function forgot(Request $request)
     {
         $data = $request->validate([

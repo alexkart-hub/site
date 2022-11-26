@@ -1,11 +1,9 @@
 @php
     /**
-     * @var \App\Models\Category $curCategory
-     * @var \App\Models\Post $post
      */
-        $prevUrl = !empty($postPrev) ? route('post', ['categoryCode' => $curCategory->code, 'postCode' => $postPrev['code']]) : '';
-        $nextUrl = !empty($postNext) ? route('post', ['categoryCode' => $curCategory->code, 'postCode' => $postNext['code']]) : '';
-        $count = $post->comments()->count();
+        $prevUrl = !empty($page->postPrev) ? route('post', ['categoryCode' => $page->category->code, 'postCode' => $page->postPrev['code']]) : '';
+        $nextUrl = !empty($page->postNext) ? route('post', ['categoryCode' => $page->category->code, 'postCode' => $page->postNext['code']]) : '';
+        $count = $page->post->comments()->count();
 @endphp
 <div class="navigation-top" id="comments">
     <div class="d-sm-flex justify-content-between text-center">

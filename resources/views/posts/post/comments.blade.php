@@ -1,7 +1,7 @@
 <div class="comment-form">
     <h4>Оставить комментарий</h4>
-    <form class="form-contact comment_form" action="{{ route('comment', $post->id) }}" method="POST" id="commentForm"
-          data-id="{{ $post->id }}">
+    <form class="form-contact comment_form" action="{{ route('comment', $page->post->id) }}" method="POST" id="commentForm"
+          data-id="{{ $page->post->id }}">
         @csrf
         <div class="row">
             <div class="col-12">
@@ -21,8 +21,8 @@
     </form>
 </div>
 <div class="comments-area">
-    <h4>{{ $count = $post->comments()->count() }} {{ \App\Models\Helper::getCommentWordByCount($count) }}</h4>
-    @foreach($post->comments as $comment)
+    <h4>{{ $count = $page->post->comments()->count() }} {{ \App\Models\Helper::getCommentWordByCount($count) }}</h4>
+    @foreach($page->post->comments as $comment)
         <div class="comment-list" id="comment-{{ $comment->id }}">
             <div class="single-comment justify-content-between d-flex">
                 <div class="user justify-content-between d-flex">

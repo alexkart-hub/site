@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
-Route::get('/category', [\App\Http\Controllers\PostController::class, 'index'])->name('categories');
-Route::get('/category/{categoryCode}', [\App\Http\Controllers\PostController::class, 'index'])->name('category');
-Route::get('/posts/{categoryCode}/{postCode}', [\App\Http\Controllers\PostController::class, 'index'])->name('post');
+Route::get('/category', [\App\Http\Controllers\IndexController::class, 'index'])->name('categories');
+Route::get('/category/{categoryCode}', [\App\Http\Controllers\IndexController::class, 'index'])->name('category');
+Route::get('/posts/{categoryCode}/{postCode}', [\App\Http\Controllers\IndexController::class, 'index'])->name('post');
 Route::get('/storage/posts/{filename}', [\App\Http\Controllers\StoragePosts::class, 'getImage'])->name('postImage');
 
 Route::middleware('auth')->group(function () {
@@ -30,13 +30,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+    Route::get('/login', [\App\Http\Controllers\IndexController::class, 'index'])->name('login');
     Route::post('/login_process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');
-    Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+    Route::get('/register', [\App\Http\Controllers\IndexController::class, 'index'])->name('register');
     Route::post('/register_process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register_process');
-    Route::get('/forgot', [\App\Http\Controllers\AuthController::class, 'showForgotForm'])->name('forgot');
+    Route::get('/forgot', [\App\Http\Controllers\IndexController::class, 'index'])->name('forgot');
     Route::post('/forgot_process', [\App\Http\Controllers\AuthController::class, 'forgot'])->name('forgot_process');
 });
 
-Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts');
+Route::get('/contacts', [\App\Http\Controllers\IndexController::class, 'index'])->name('contacts');
 Route::post('/contact_form_process', [\App\Http\Controllers\ContactController::class, 'sendContactForm'])->name('contact_form_process');

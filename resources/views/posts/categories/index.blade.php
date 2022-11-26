@@ -1,9 +1,9 @@
 @include('posts.categories.header')
-@foreach($posts as $post)
+@foreach($page->posts as $post)
     @include('posts.categories.item',[
         'post' => $post,
-        'curCategory' => $curCategory
+        'curCategory' => $page->category
     ])
 @endforeach
-{{ $posts->links('partials.pagination') }}
+{{ $page->posts->links('partials.pagination') }}
 @include('posts.categories.footer')

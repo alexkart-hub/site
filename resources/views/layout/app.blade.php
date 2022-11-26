@@ -1,3 +1,5 @@
+@section('title', $page->getTitle())
+@section('description', $page->getDescription())
 @include('partials.header')
 @yield('content')
 @include('partials.footer')

@@ -43,7 +43,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="{--><!--{ route('home') }}">
+                                <a href="{{ route('home') }}">
                                     <img src="/assets/img/logo.png" alt="">
                                 </a>
                             </div>
@@ -64,8 +64,9 @@
                             <div class="Appointment">
                                 <div class="phone_num d-none d-xl-block">
                                     @auth('admin')
-{{--                                        <a href="{{ route('admin.profile', auth('admin')->user()->name) }}" class="user-name">{{ auth('admin')->user()->name }}</a>--}}
-                                        <a href="{{ route('admin.logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
+                                        {{--                                        <a href="{{ route('admin.profile', auth('admin')->user()->name) }}" class="user-name">{{ auth('admin')->user()->name }}</a>--}}
+                                        <a href="{{ route('admin.logout') }}"> Выйти<i
+                                                class="fa-light fa-door-open"></i></a>
                                     @endauth
                                 </div>
                             </div>
@@ -83,6 +84,7 @@
 </header>
 <!-- header-end -->
 <div class="job_listing_area job_details_area plus_padding">
-    <div class="container">
-        <div class="row pt-5">
-
+    @if (\Illuminate\Support\Facades\Route::currentRouteName() != 'admin.login')
+        <div class="container">
+            <div class="row pt-5">
+    @endif

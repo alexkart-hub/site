@@ -1,10 +1,6 @@
 @extends('layout.app')
-
-@section('title', 'Главная страница')
-@section('description', 'Собираю на этом сайте всю информацию, которая мне нужна.')
-
 @section('content')
-@include('main.header')
+@include('home.header')
 <!-- catagory_area -->
 <div class="catagory_area">
     <div class="container pt-5">
@@ -581,5 +577,5 @@
     </div>
 </div>
 <!-- /testimonial_area  -->
-@include('main.footer')
+@include('home.footer')
 @endsection
