@@ -106,7 +106,7 @@
                     <div class="col-md-12">
                         <div class="input_field">
                             <textarea name="detail_text" id="" cols="30" rows="10" placeholder="Текст"
-                                      @error('detail_text') class="border-danger" @enderror
+                                       class="editor @error('detail_text') border-danger @enderror"
                             >@if (isset($post)){{ $post->detail_text }}@endif</textarea>
                         </div>
                         @error('detail_text')
@@ -124,6 +124,10 @@
     </div>
 @endsection
 @section('script')
-    <script src="/custom/js/ajax/post_add_edit.js?{{ time() }}"></script>
+<script src="/custom/js/ajax/post_add_edit.js?{{ time() }}"></script>
+<script src="/custom/js/editor/ckeditor.js?{{ time() }}"></script>
+<script src="/custom/js/editor/ckeditorStart.js?{{ time() }}"></script>
 @endsection
-
+@section('css')
+<link rel="stylesheet" type="text/css" href="/custom/css/editor.css?{{ time() }}">
+@endsection
