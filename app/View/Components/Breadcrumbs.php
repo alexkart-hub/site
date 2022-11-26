@@ -92,6 +92,9 @@ class Breadcrumbs extends Component
         $category = Category::query()
             ->where('code', $value)
             ->first();
+        if (!$category) {
+            return new Crumb('', '404', true);
+        }
         if ($category->level > 1) {
             $arCategories[] = $category;
             $level = $category->level;
@@ -117,6 +120,9 @@ class Breadcrumbs extends Component
         $post = Post::query()
             ->where('code', $value)
             ->first();
+        if (!$post) {
+            return new Crumb('', '404', true);
+        }
         return new Crumb(route('post', ['categoryCode' => $post->category->code, 'postCode' => $value]), $post->title, $this->route->getName() == 'post');
     }
 

@@ -85,7 +85,9 @@
                 </div>
             </div>
         </div>
+        @if (\Illuminate\Support\Facades\Route::current())
         <x-breadcrumbs :route=\Illuminate\Support\Facades\Route::current()/>
+        @endif
     </div>
 
 </header>

@@ -12,4 +12,5 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
     Route::get('', [\App\Http\Controllers\Admin\IndexController::class, 'index'])->name('main');
     Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
+    Route::post('translit', [\App\Http\Controllers\PostController::class, 'translit']);
 });

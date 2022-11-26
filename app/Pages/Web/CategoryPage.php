@@ -18,6 +18,9 @@ class CategoryPage extends Page
         $this->category = Category::query()
             ->where('code', $categoryCode)
             ->first();
+        if (!$this->category) {
+            abort(404);
+        }
 
         $this->categories = Category::query()
             ->where('level', $this->category->level + 1)

@@ -1,6 +1,10 @@
 @include('admin.partials.header')
 @yield('content')
-@if(\Illuminate\Support\Facades\Route::currentRouteName() != 'admin.login')
-<x-admin.left-menu/>
+@if(!in_array(\Illuminate\Support\Facades\Route::currentRouteName(),[
+    'admin.login',
+    'admin.posts.edit',
+    'admin.posts.create',
+]))
+    <x-admin.left-menu/>
 @endif
 @include('admin.partials.footer')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostFormRequest;
 use App\Models\Category;
+use App\Models\Helper;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -47,17 +48,6 @@ class PostController extends Controller
     {
         $post = Post::create($request->validated());
         return redirect(route('admin.posts.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

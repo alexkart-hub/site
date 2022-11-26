@@ -5,14 +5,20 @@ $('#inputGroupFile03').change(function () {
     $('label.custom-file-label[for="inputGroupFile03"]').text(fileName);
 });
 
+$('#title').on({
+    input: function (e) {
+        $('#code').val(translit(this.value));
+    }
+});
+
 const someCheckbox = document.getElementById('is_published');
 const text = document.getElementById('text_is_published');
 
 someCheckbox.addEventListener('change', e => {
-    if(e.target.checked === true) {
-       text.innerText = 'Опубликовано';
+    if (e.target.checked === true) {
+        text.innerText = 'Опубликовано';
     }
-    if(e.target.checked === false) {
+    if (e.target.checked === false) {
         text.innerText = 'Опубликовать';
     }
 });

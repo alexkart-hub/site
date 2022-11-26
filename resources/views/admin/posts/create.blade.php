@@ -4,7 +4,7 @@
 @section('description', isset($post) ? 'Редактировать заметку' : 'Добавить новую заметку')
 
 @section('content')
-    <div class="col-lg-9 order-lg-2">
+    <div class="col-lg-12 order-lg-2">
         <div class="apply_job_form white-bg admin_posts_add_create">
             <h4>@if(isset($post))
                     Редактировать заметку {{ $post->title }}
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="title" type="text" placeholder="Название" @error('title') class="border-danger"
+                            <input id="title" name="title" type="text" placeholder="Название"  data-token="{{ csrf_token() }}" @error('title') class="border-danger"
                                    @enderror
                                    @if (isset($post)) value="{{ $post->title }}" @endif>
                         </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="code" type="text" placeholder="Код" @error('code') class="border-danger"
+                            <input id="code" name="code" type="text" placeholder="Код" @error('code') class="border-danger"
                                    @enderror
                                    @if (isset($post)) value="{{ $post->code }}" @endif>
                         </div>
@@ -81,7 +81,7 @@
                     </div>
                     @if (isset($post) && $post->thumbnail)
                         <div class="col-md-12 feature-img">
-                            <img class="img-fluid" src="/storage/posts/{{ $post->thumbnail }}">
+                            <img class="img-fluid post-image" src="/storage/posts/{{ $post->thumbnail }}">
                         </div>
                     @endif
                     <div class="col-md-12">
@@ -124,6 +124,7 @@
     </div>
 @endsection
 @section('script')
+<script src="/custom/js/ajax/translit.js?{{ time() }}"></script>
 <script src="/custom/js/ajax/post_add_edit.js?{{ time() }}"></script>
 <script src="/custom/js/editor/ckeditor.js?{{ time() }}"></script>
 <script src="/custom/js/editor/ckeditorStart.js?{{ time() }}"></script>

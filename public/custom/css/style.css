@@ -234,6 +234,10 @@ i.fa-xmark:before {
     color: black !important;
 }
 
+.post-image {
+    max-width: 50%;
+}
+
 /* ------- categories -------------------------------------------*/
 
 .job_listing_area .admin_categories .job_lists .single_jobs {
@@ -286,4 +290,10 @@ i.fa-xmark:before {
 .job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h5:hover,
 .job_listing_area .admin_categories .job_lists .single_jobs .jobs_left .jobs_conetent h6:hover {
     color: #00D363;
+}
+/*----- 404 ----------------------------*/
+
+.page-404 {
+    font-size: 200px;
+    font-weight: bolder;
 }

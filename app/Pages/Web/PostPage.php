@@ -13,6 +13,12 @@ class PostPage extends Page
         $this->view = 'posts.' . $this->route->getName() . '.index';
         $categoryCode = $this->route->parameter('categoryCode');
         $postCode = $this->route->parameter('postCode');
+        $this->post = Post::query()
+            ->where('code', $postCode)
+            ->first();
+        if (!$this->post) {
+            abort(404);
+        }
         $this->category = Category::query()
             ->where('code', $categoryCode)
             ->first();
@@ -24,9 +30,6 @@ class PostPage extends Page
         $postsCodes = array_column($this->posts, 'code');
         $postsCodesKeys = array_flip($postsCodes);
 
-        $this->post = Post::query()
-            ->where('code', $postCode)
-            ->first();
         $this->postPrev = $posts[$postsCodesKeys[$postCode] - 1] ?? '';
         $this->postNext = $posts[$postsCodesKeys[$postCode] + 1] ?? '';
     }

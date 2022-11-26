@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="name" type="text" placeholder="Название" @error('name') class="border-danger"
+                            <input id="name" name="name" type="text" placeholder="Название" @error('name') class="border-danger"
                                    @enderror
                                    @if (isset($category)) value="{{ $category->name }}" @endif>
                         </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_field">
-                            <input name="code" type="text" placeholder="Код" @error('code') class="border-danger"
+                            <input id="code" name="code" type="text" placeholder="Код" @error('code') class="border-danger"
                                    @enderror
                                    @if (isset($category)) value="{{ $category->code }}" @endif>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="col-md-12">
                         <div class="input_field">
                             <textarea name="description" id="" cols="30" rows="10" placeholder="Описание"
-                                      @error('description') class="border-danger" @enderror
+                                       class="editor @error('description') border-danger @enderror"
                             >@if (isset($category)){{ $category->description }}@endif</textarea>
                         </div>
                         @error('description')
@@ -86,5 +86,14 @@
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+<script src="/custom/js/ajax/translit.js?{{ time() }}"></script>
+<script src="/custom/js/ajax/category_add_edit.js?{{ time() }}"></script>
+<script src="/custom/js/editor/ckeditor.js?{{ time() }}"></script>
+<script src="/custom/js/editor/ckeditorStart.js?{{ time() }}"></script>
+@endsection
+@section('css')
+<link rel="stylesheet" type="text/css" href="/custom/css/editor.css?{{ time() }}">
 @endsection
 
