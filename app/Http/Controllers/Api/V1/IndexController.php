@@ -33,7 +33,7 @@ class IndexController extends Controller
 
     public function createPost(ApiPostRequest $request)
     {
-        PostService::createPost($request);
+        PostService::create($request);
         return new PostResource(Cache::remember('last_post', 60 * 60 * 24, function () {
             return Post::orderByDesc('created_at')->first();
         }));

@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostFormRequest;
 use App\Models\Category;
-use App\Models\Helper;
 use App\Models\Post;
 use App\Services\PostService;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -47,7 +45,7 @@ class PostController extends Controller
      */
     public function store(PostFormRequest $request)
     {
-        PostService::createPost($request);
+        PostService::create($request);
         return redirect(route('admin.posts.index'));
     }
 
