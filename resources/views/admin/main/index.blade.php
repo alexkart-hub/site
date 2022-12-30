@@ -15,4 +15,9 @@
             </div>
         </div>
     </div>
+    <pre>
+    @php
+    print_r($result);
+    @endphp
+    </pre>
 @endsection

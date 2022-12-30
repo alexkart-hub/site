@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\PostFormRequest;
 use App\Models\Category;
 use App\Models\Helper;
 use App\Models\Post;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -46,7 +47,7 @@ class PostController extends Controller
      */
     public function store(PostFormRequest $request)
     {
-        $post = Post::create($request->validated());
+        PostService::createPost($request);
         return redirect(route('admin.posts.index'));
     }
 

@@ -11,4 +11,10 @@ class PostObserver
         Cache::forget('all_posts');
         Cache::forget('last_post');
     }
+
+    public function deleted()
+    {
+        Cache::forget('all_posts');
+        Cache::forget('last_post');
+    }
 }
