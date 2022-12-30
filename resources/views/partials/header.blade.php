@@ -57,7 +57,7 @@
                                         <li><a href="{{ route('contacts') }}">Контакты</a></li>
                                         <li><a href="#">Избранное</a></li>
                                         @auth('admin')
-                                        <li><a href="{{ route('admin.main') }}">Админка</a></li>
+                                            <li><a href="{{ route('admin.main') }}">Админка</a></li>
                                         @else
                                             <li><a href="{{ route('admin.login') }}">Админка</a></li>
                                         @endauth
@@ -69,7 +69,8 @@
                             <div class="Appointment">
                                 <div class="phone_num d-none d-xl-block">
                                     @auth('web')
-                                        <a href="{{ route('profile', auth('web')->user()->name) }}" class="user-name">{{ auth('web')->user()->name }}</a>
+                                        <a href="{{ route('profile', auth('web')->user()->name) }}"
+                                           class="user-name">{{ auth('web')->user()->name }}</a>
                                         <a href="{{ route('logout') }}"> Выйти<i class="fa-light fa-door-open"></i></a>
                                     @endauth
                                     @guest('web')
@@ -85,11 +86,12 @@
                 </div>
             </div>
         </div>
+        <x-search/>
         @if (\Illuminate\Support\Facades\Route::current())
-        <x-breadcrumbs :route=\Illuminate\Support\Facades\Route::current()/>
+            <x-breadcrumbs :route=\Illuminate\Support\Facades\Route::current()/>
         @endif
     </div>
-
 </header>
+<div style="height: 50px;"></div>
 <!-- header-end -->
 
