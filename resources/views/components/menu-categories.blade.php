@@ -17,7 +17,7 @@
             @endif
             @php
                 $isParent = $category->margin_right - $category->margin_left > 1;
-                $selected = $category->id == $curCategory->id;
+                $selected = $category->id == ($curCategory->id ?? '');
             @endphp
             @if ($prevLevel > 0 && $category->level < $prevLevel)
                 @if($category->level == 1)

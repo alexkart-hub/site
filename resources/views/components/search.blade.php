@@ -1,15 +1,19 @@
 <div class="container">
-    <div class="row justify-content-center mt-2">
-        <div class="col-xl-9 col-lg-12">
+    <div class="row justify-content-start mt-2">
+        <div class="col-xl-11 col-lg-12">
             <aside class="">
-                <form action="#">
+                <form action="{{ route('search') }}">
+                    @csrf
                     <div class="form-group-top">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder='{{ \Illuminate\Support\Facades\Route::currentRouteName() }}'
+                            <input type="text" class="form-control" name="query"
+                                   placeholder='Введите фразу для поиска'
                                    onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Search Keyword'">
+                                   onblur="this.placeholder = 'Search Keyword'"
+                                   value="@yield('query')"
+                            >
                             <div class="input-group-append">
-                                <button class="btn" type="button"><i class="ti-search"></i></button>
+                                <button class="btn" type="submit"><i class="ti-search"></i></button>
                             </div>
                         </div>
                     </div>

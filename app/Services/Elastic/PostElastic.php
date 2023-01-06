@@ -13,8 +13,21 @@ class PostElastic extends ElasticService
         return $this;
     }
 
+    public function search($query = '')
+    {
+        $body = [
+            'query' => [
+                'match' => [
+                    'detail_text' => $query
+                ]
+            ]
+        ];
+        $response = $this->client::post($this->getPath() . '_search', $body)->json();
+        return $response['hits']['hits'] ?? [];
+    }
+
     protected function getCrudPath($id = ''): string
     {
-        return parent::getPath() . self::TYPE . ($this->post->id ?? $id);
+        return $this->getPath() . self::TYPE . ($this->post->id ?? $id);
     }
 }

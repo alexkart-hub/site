@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <nav aria-label="breadcrumb">
-                @if (\Illuminate\Support\Facades\Route::currentRouteName() == 'post')
+                @if (in_array(\Illuminate\Support\Facades\Route::currentRouteName(),['post', 'search']))
                     @php($style = true)
                 @else
                     @php($style = false)
