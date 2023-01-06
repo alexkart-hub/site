@@ -17,6 +17,4 @@
         </div>
     @endforeach
 </div>
-@section('query')
-    {{ $query }}
-@endsection
+@section('query'){{ $query }}@endsection
