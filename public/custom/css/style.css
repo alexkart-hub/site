@@ -297,3 +297,11 @@ i.fa-xmark:before {
     font-size: 200px;
     font-weight: bolder;
 }
+
+/*----- search -------------------------*/
+
+.query {
+    font-weight: bold;
+    font-style: italic;
+    color: #993333;
+}

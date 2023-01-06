@@ -61,6 +61,9 @@ class Breadcrumbs extends Component
         if ($this->route->getName() == 'contacts') {
             $breadcrumbs[] = new Crumb(route('contacts'), 'Контакты', true);
         }
+        if ($this->route->getName() == 'search') {
+            $breadcrumbs[] = new Crumb($this->route, 'Поиск', true);
+        }
         foreach ($this->route->parameters as $param => $value) {
             $crumb = $this->getBreadcrumbItem($param, $value);
             if (is_array($crumb)) {

@@ -40,3 +40,4 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/contacts', [\App\Http\Controllers\IndexController::class, 'index'])->name('contacts');
 Route::post('/contact_form_process', [\App\Http\Controllers\ContactController::class, 'sendContactForm'])->name('contact_form_process');
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');

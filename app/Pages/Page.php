@@ -2,6 +2,7 @@
 
 namespace App\Pages;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 class Page implements WebPage
@@ -11,6 +12,7 @@ class Page implements WebPage
     protected $route;
     protected $title;
     protected $description;
+    protected $request;
 
     public function __construct()
     {
@@ -56,5 +58,12 @@ class Page implements WebPage
 
     protected function init()
     {
+//        if (preg_match_all("/пхп|Пхп/", "Пхп is the пхп scripting language of choice.", $match)) {
+//            echo "Вхождение найдено.";
+//        } else {
+//            echo "Вхождение не найдено.";
+//        }
+//        print_r($match);
+//        die;
     }
 }

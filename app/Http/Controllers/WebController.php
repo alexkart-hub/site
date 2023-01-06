@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pages\PageFactory;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 class WebController extends Controller

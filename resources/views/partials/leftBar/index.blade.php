@@ -1,6 +1,6 @@
 @include('partials.leftBar.header')
-
-@include('partials.leftBar.searchForm.index')
+{{--@include('partials.leftBar.searchForm.index')--}}
+@php($curCategory = $curCategory ?? '')
 <x-menu-categories :cur-category=$curCategory />
 {{--@include('partials.leftBar.popularPosts.index')--}}
 @include('partials.leftBar.tagCloud.index')
