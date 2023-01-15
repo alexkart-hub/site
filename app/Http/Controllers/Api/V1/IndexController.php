@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Cache;
 
 class IndexController extends Controller
 {
+    protected $postService;
+
+    public function __construct(PostService $postService)
+    {
+        $this->postService = $postService;
+    }
+
     public function index()
     {
         return 'Hello, world!';
@@ -33,7 +40,7 @@ class IndexController extends Controller
 
     public function createPost(ApiPostRequest $request)
     {
-        PostService::create($request);
+        $this->postService->create($request);
         return new PostResource(Cache::remember('last_post', 60 * 60 * 24, function () {
             return Post::orderByDesc('created_at')->first();
         }));

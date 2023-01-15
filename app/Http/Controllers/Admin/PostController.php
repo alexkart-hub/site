@@ -10,6 +10,12 @@ use App\Services\PostService;
 
 class PostController extends Controller
 {
+    protected PostService $postService;
+
+    public function __construct(PostService $postService)
+    {
+        $this->postService = $postService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +51,7 @@ class PostController extends Controller
      */
     public function store(PostFormRequest $request)
     {
-        PostService::create($request);
+        $this->postService->create($request);
         return redirect(route('admin.posts.index'));
     }
 

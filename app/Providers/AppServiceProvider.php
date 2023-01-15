@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\IndexController;
+use App\Services\PostService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(PostService::class, function () {
+            return new PostService();
+        });
+        $this->app->singleton(IndexController::class, function () {
+            return new IndexController(
+                $this->app->get(PostService::class)
+            );
+        });
     }
 
     /**
@@ -23,6 +32,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

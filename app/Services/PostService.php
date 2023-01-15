@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostService
 {
-    public static function create(Request $request)
+    public function create(Request $request)
     {
         $result = Post::create($request->validated());
         Post::getElastic()
