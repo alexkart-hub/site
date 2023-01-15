@@ -1,3 +1,6 @@
+@import url('post_detail.css');
+@import url('editor_php.css');
+
 .header-area .main-header-area{
     background: rgba(0, 29, 56, 0.8);
 }

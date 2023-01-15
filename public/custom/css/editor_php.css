@@ -1,0 +1,28 @@
+.hljs-keyword {
+    color: #008000;
+}
+
+.hljs-title {
+    color: #0000FF;
+}
+
+.hljs-title.function_ {
+    color: #687822;
+    font-weight: normal;
+}
+
+.hljs-title.class_ {
+    color: #000;
+}
+
+.hljs-built_in {
+    color: #000;
+}
+
+.hljs-variable {
+    color: #19177C;
+}
+
+.hljs-string {
+    color: #BA2121;
+}
