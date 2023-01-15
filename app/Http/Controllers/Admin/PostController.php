@@ -87,6 +87,7 @@ class PostController extends Controller
             $data['thumbnail'] = $thumbnail;
         }
         $data['is_published'] = isset($data['is_published']);
+        $data['preview_text'] = $data['preview_text'] ?? '';
         $post->update($data);
         return redirect(route('admin.posts.edit', $id));
     }

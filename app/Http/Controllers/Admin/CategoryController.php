@@ -53,6 +53,7 @@ class CategoryController extends Controller
         $data['level'] = $parent ? $parent->level + 1 : 1;
         $data['margin_left'] = '0';
         $data['margin_right'] = '0';
+        $data['description'] = $data['description'] ?? '';
         $cur = Category::create($data);
         $this->recalcMargin($cur, $parent);
         return redirect(route('admin.categories.index'));

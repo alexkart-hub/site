@@ -1,0 +1,24 @@
+.job_listing_area .job_lists .single_jobs {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb {
+    overflow: hidden;
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_left .thumb img {
+    width: 100%;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_left .jobs_conetent h2 {
+    line-height: 1em !important;
+}
+
+.job_listing_area .job_lists .single_jobs .jobs_right .date p {
+    line-height: 40px;
+}

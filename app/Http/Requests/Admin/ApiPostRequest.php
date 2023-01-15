@@ -27,7 +27,7 @@ class ApiPostRequest extends FormRequest
             'category_id' => ['required', 'int'],
             'title' => ['required'],
             'code' => ['required'],
-            'preview_text' => ['required'],
+            'preview_text' => ['nullable'],
             'detail_text' => ['required'],
             'thumbnail' => ['image'],
             'is_published' => [''],

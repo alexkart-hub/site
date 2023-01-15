@@ -9,7 +9,10 @@ class PostService
 {
     public function create(Request $request)
     {
-        $result = Post::create($request->validated());
+        $data = $request->validated();
+        $data['is_published'] = isset($data['is_published']);
+        $data['preview_text'] = $data['preview_text'] ?? '';
+        $result = Post::create($data);
         Post::getElastic()
             ->setData($result)
             ->post($request->validated());
