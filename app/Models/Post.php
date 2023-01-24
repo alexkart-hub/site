@@ -23,7 +23,7 @@ class Post extends Model
         'thumbnail',
         'is_published'
     ];
-    protected PostElastic $elastic;
+    protected $elastic;
 
     public function __construct(array $attributes = [])
     {
@@ -57,6 +57,11 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     public function update(array $attributes = [], array $options = [])

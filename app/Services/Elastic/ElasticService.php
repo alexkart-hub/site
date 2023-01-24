@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 abstract class ElasticService
 {
     protected static $instance = null;
-    protected Http $client;
+    protected $client;
 
     const ELASTIC_PATH = 'elasticsearch_maxis:9200/';
     const INDEX = 'post/';

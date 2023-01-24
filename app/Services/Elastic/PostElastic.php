@@ -5,7 +5,7 @@ use App\Models\Post;
 
 class PostElastic extends ElasticService
 {
-    protected Post $post;
+    protected $post;
 
     public function setData(Post $post): PostElastic
     {

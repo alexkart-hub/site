@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\IndexController;
 use App\Services\PostService;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,5 +33,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Relation::enforceMorphMap([
+            'post' => 'App\Models\Post'
+        ]);
     }
 }
