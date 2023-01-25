@@ -35,6 +35,7 @@ class LeftMenu extends Component
                 'items' => [
                     ['title' => 'Все заметки', 'routeName' => 'admin.posts.index'],
                     ['title' => 'Разделы', 'routeName' => 'admin.categories.index'],
+                    ['title' => 'Тэги', 'routeName' => 'admin.tags.index'],
                 ]
             ]
         ];
